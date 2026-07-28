@@ -3,189 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subodh Kumar - Software Engineer</title>
+    <title>Subodh Kumar — Data Extraction & Automation Engineer</title>
+    <meta name="description" content="Freelance Python engineer specializing in web scraping, PDF extraction, and data automation at scale. Custom scrapers, multilingual PDF parsing, and pipeline maintenance.">
+    <meta property="og:title" content="Subodh Kumar — Data Extraction & Automation Engineer">
+    <meta property="og:description" content="I turn messy websites and PDFs into clean, usable data — and automate the boring parts.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="subodh.jpg">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Fixed Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="nav-brand">
+            <a href="#home" class="nav-brand">
                 <span class="brand-name">Subodh Kumar</span>
-                <span class="brand-title">Software Engineer</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <span class="brand-title">Data Extraction Engineer</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="profile-photo">
-                    <img src="subodh.jpg" alt="Subodh Kumar" class="profile-img">
-                </div>
-                <h1 class="name">Subodh Kumar</h1>
-                <h2 class="title">Software Engineer</h2>
-                <p class="tagline">Web Developer & Data Expert specialising in web scraping, pdf parsing and custom automation solutions</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="#contact" class="btn-secondary">Get In Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Passionate Software Engineer with expertise in web development and data processing. I specialize in creating efficient automation solutions, web scraping systems, and PDF parsing tools that solve real-world problems.</p>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>Web Development</span>
+    <main>
+        <!-- Hero -->
+        <section id="home" class="hero" aria-label="Introduction">
+            <div class="hero-container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <p class="hero-eyebrow">Available for freelance projects</p>
+                        <h1 class="hero-headline">Freelance Data Extraction &amp; Automation Engineer</h1>
+                        <p class="hero-tagline">I turn messy websites and PDFs into clean, usable data — and automate the boring parts.</p>
+                        <div class="hero-buttons">
+                            <a href="#work" class="btn btn-primary">View My Work</a>
+                            <a href="#contact" class="btn btn-secondary">Get a Quote</a>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-spider"></i>
-                            <span>Web Scraping</span>
+                        <ul class="hero-metrics" aria-label="Key achievements">
+                            <li><i class="fas fa-database" aria-hidden="true"></i> 30M+ records extracted</li>
+                            <li><i class="fas fa-language" aria-hidden="true"></i> Multilingual PDF parsing</li>
+                            <li><i class="fas fa-project-diagram" aria-hidden="true"></i> End-to-end pipelines</li>
+                        </ul>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="profile-photo">
+                            <img src="subodh.jpg" alt="Subodh Kumar" class="profile-img" width="280" height="280">
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-file-pdf"></i>
-                            <span>PDF Processing</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-robot"></i>
-                            <span>Automation</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="achievements">
-                    <h3>Technical Achievements</h3>
-                    <ul class="achievement-list">
-                        <li>Built scalable web scraping solutions processing 10K+ pages daily</li>
-                        <li>Developed PDF parsing systems with 95% accuracy rate</li>
-                        <li>Created automation tools reducing manual work by 80%</li>
-                        <li>Implemented data pipelines handling millions of records</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-spider project-icon"></i>
-                        <h3>Advanced Web Scraper</h3>
-                    </div>
-                    <p>Multi-threaded web scraping solution with proxy rotation and anti-detection mechanisms. Handles dynamic content and complex authentication.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Selenium</span>
-                        <span class="tech-tag">BeautifulSoup</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-file-pdf project-icon"></i>
-                        <h3>PDF Data Extractor</h3>
-                    </div>
-                    <p>Intelligent PDF parsing system using OCR and NLP to extract structured data from complex documents with high accuracy.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">PyPDF2</span>
-                        <span class="tech-tag">Tesseract</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-robot project-icon"></i>
-                        <h3>Business Automation Suite</h3>
-                    </div>
-                    <p>Complete automation platform for business processes including data entry, report generation, and workflow management.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Celery</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-chart-line project-icon"></i>
-                        <h3>Data Analytics Dashboard</h3>
-                    </div>
-                    <p>Real-time analytics dashboard with interactive visualizations for business intelligence and data-driven decision making.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">Node.js</span>
+                        <p class="hero-name">Subodh Kumar</p>
+                        <p class="hero-subtitle">Python · Go · Automation</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Ready to collaborate?</h3>
-                    <p>I'm always interested in discussing new opportunities, innovative projects, and potential collaborations. Whether you need custom automation solutions or want to explore data-driven possibilities, let's talk!</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:subodh.kumar@email.com">subodh.kumar@email.com</a>
+        <!-- Services -->
+        <section id="services" class="services" aria-label="Services">
+            <div class="container">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">Productized offerings for clear scope and fast delivery</p>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fas fa-spider" aria-hidden="true"></i></div>
+                        <span class="price-badge">Starting from $200</span>
+                        <h3>Custom Web Scraper</h3>
+                        <p>Extract data from websites or APIs and deliver it as CSV, JSON, or directly into your database.</p>
+                        <ul class="service-deliverables">
+                            <li>Working scraper script with documentation</li>
+                            <li>Structured output in your preferred format</li>
+                            <li>Optional scheduler for recurring runs</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Get a Quote</a>
+                    </article>
+
+                    <article class="service-card service-card-featured">
+                        <div class="service-icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></div>
+                        <span class="price-badge">Starting from $250</span>
+                        <h3>PDF &amp; Document Extraction</h3>
+                        <p>Parse complex PDF layouts — including non-English text — into structured, queryable data.</p>
+                        <ul class="service-deliverables">
+                            <li>Sample-based parser development</li>
+                            <li>OCR support for scanned documents</li>
+                            <li>Export to CSV, JSON, or database</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fas fa-wrench" aria-hidden="true"></i></div>
+                        <span class="price-badge">Starting from $150</span>
+                        <h3>Scraper Maintenance &amp; Repair</h3>
+                        <p>Fix broken scrapers, handle site changes, and keep your data pipelines running reliably.</p>
+                        <ul class="service-deliverables">
+                            <li>Debug and restore failing scrapers</li>
+                            <li>Adapt to website structure changes</li>
+                            <li>Monthly retainer available on request</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Get a Quote</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work / Case Studies -->
+        <section id="work" class="work" aria-label="Case studies">
+            <div class="container">
+                <h2 class="section-title">Selected Work</h2>
+                <p class="section-subtitle">Real projects — sanitized for privacy</p>
+                <div class="work-grid">
+                    <article class="case-card">
+                        <div class="case-header">
+                            <i class="fas fa-file-pdf case-icon" aria-hidden="true"></i>
+                            <h3>Multilingual Government PDF Pipeline</h3>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Problem</span>
+                            <p>Thousands of voter-list PDFs in Hindi needed to be parsed and loaded into a management system.</p>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Approach</span>
+                            <p>Built an automated pipeline to download PDFs, extract Hindi text via OCR, parse structured fields, and feed a voter management database.</p>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Result</span>
+                            <p>End-to-end processing of large PDF batches with structured, queryable output ready for downstream use.</p>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OCR</span>
+                            <span class="tech-tag">PDF Parsing</span>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-header">
+                            <i class="fas fa-database case-icon" aria-hidden="true"></i>
+                            <h3>High-Volume Web Data Extraction</h3>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Problem</span>
+                            <p>Client needed tens of millions of user records extracted from a large web platform.</p>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Approach</span>
+                            <p>Designed a scalable scraping architecture with deduplication, resilient retries, and efficient storage.</p>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Result</span>
+                            <p>30M+ records extracted, deduplicated, and stored in a structured pipeline ready for analysis.</p>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Async Scraping</span>
+                            <span class="tech-tag">Database</span>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-header">
+                            <i class="fas fa-robot case-icon" aria-hidden="true"></i>
+                            <h3>AI-Powered Brochure Generator</h3>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Problem</span>
+                            <p>Manual brochure creation from scattered website content was slow and inconsistent.</p>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Approach</span>
+                            <p>Automated content aggregation from target websites, then LLM-powered generation of marketing copy and brochures.</p>
+                        </div>
+                        <div class="case-block">
+                            <span class="case-label">Result</span>
+                            <p>End-to-end workflow from web scrape to polished brochure draft — cutting manual content work significantly.</p>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Web Scraping</span>
+                            <span class="tech-tag">LLM API</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="about" aria-label="About">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a Python-first engineer with strong Go experience, focused on data extraction and automation. I build scrapers, PDF parsers, and pipelines that handle real-world messiness — large volumes, non-English text, and changing websites.</p>
+                        <p>Python is my go-to for fast delivery; Go when performance and concurrency matter. I'm also expanding into LLM-powered workflows that combine scraped data with AI-generated output.</p>
+                        <div class="skills-grid">
+                            <div class="skill-item"><i class="fas fa-spider" aria-hidden="true"></i><span>Web Scraping</span></div>
+                            <div class="skill-item"><i class="fas fa-file-pdf" aria-hidden="true"></i><span>PDF Processing</span></div>
+                            <div class="skill-item"><i class="fas fa-stream" aria-hidden="true"></i><span>Data Pipelines</span></div>
+                            <div class="skill-item"><i class="fas fa-cogs" aria-hidden="true"></i><span>Automation</span></div>
+                            <div class="skill-item"><i class="fas fa-brain" aria-hidden="true"></i><span>LLM Workflows</span></div>
+                        </div>
+                    </div>
+                    <div class="process">
+                        <h3>How I Work</h3>
+                        <ol class="process-steps">
+                            <li>
+                                <span class="step-num">1</span>
+                                <div>
+                                    <strong>Discovery</strong>
+                                    <p>Understand your data source, output format, and timeline.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-num">2</span>
+                                <div>
+                                    <strong>Prototype</strong>
+                                    <p>Build a working sample on real data so you can validate early.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-num">3</span>
+                                <div>
+                                    <strong>Deliver</strong>
+                                    <p>Hand off production-ready code, docs, and structured output.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-num">4</span>
+                                <div>
+                                    <strong>Support</strong>
+                                    <p>Optional maintenance when sites change or pipelines need fixes.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact" aria-label="Contact">
+            <div class="container">
+                <h2 class="section-title">Get a Quote</h2>
+                <p class="section-subtitle">Describe your data source (website, PDF, API) and what output you need.</p>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's talk about your project</h3>
+                        <p>Whether you need a new scraper, a PDF parser, or help fixing a broken pipeline — send a message and I'll get back to you within 24 hours.</p>
+                        <div class="contact-methods">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:subodh.kumar.dev@gmail.com" id="contact-email">subodhgarg2285@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Response time</h4>
+                                    <p>Usually within 24 hours</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <h4>Schedule a Call</h4>
-                                <a href="mailto:subodh.kumar@email.com?subject=Schedule%20a%20Call&body=Hi%20Subodh,%0A%0AI'd%20like%20to%20schedule%20a%20call%20to%20discuss..." class="schedule-btn">Book a Meeting</a>
+                    </div>
+
+                    <div class="contact-form-card">
+                        <form class="contact-form" id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name">
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-type">Project Type</label>
+                                <select id="project-type" name="projectType" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Custom Web Scraper">Custom Web Scraper</option>
+                                    <option value="PDF & Document Extraction">PDF &amp; Document Extraction</option>
+                                    <option value="Scraper Maintenance & Repair">Scraper Maintenance &amp; Repair</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Describe your data source and desired output..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading" hidden><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...</span>
+                            </button>
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                        </form>
                     </div>
                 </div>
-                
-                <div class="contact-form-card">
-                    <h3>Quick Message</h3>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" rows="4" required></textarea>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Subodh Kumar. Building solutions that matter.</p>
+            <p>&copy; 2026 Subodh Kumar. Data extraction &amp; automation that works.</p>
         </div>
     </footer>
 
