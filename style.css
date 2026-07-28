@@ -181,7 +181,7 @@ a {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -403,6 +403,14 @@ section {
     font-size: 1.05rem;
 }
 
+.section-note {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-navy);
+    font-weight: 500;
+}
+
 .section-title::after {
     content: '';
     display: block;
@@ -513,9 +521,262 @@ section {
     font-weight: bold;
 }
 
+.service-delivery {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 1.25rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.service-delivery strong {
+    color: var(--color-navy);
+}
+
 .service-card .btn {
     margin-top: auto;
     align-self: flex-start;
+}
+
+/* ============================================
+   Perfect For
+   ============================================ */
+.perfect-for {
+    background: var(--color-bg);
+    padding: 70px 0;
+}
+
+.audience-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.audience-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    border-bottom: 3px solid var(--color-gold);
+    box-shadow: var(--shadow-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-navy);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.audience-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.audience-item i {
+    font-size: 1.5rem;
+    color: var(--color-gold-dark);
+}
+
+/* ============================================
+   Why Work With Me
+   ============================================ */
+.why-me {
+    background: var(--color-bg);
+}
+
+.why-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.why-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.15rem 1.25rem;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-gold);
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-navy);
+}
+
+.why-item i {
+    flex-shrink: 0;
+    color: var(--color-gold-dark);
+    font-size: 1rem;
+}
+
+/* ============================================
+   Mid-page CTA
+   ============================================ */
+.mid-cta {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    padding: 60px 0;
+}
+
+.mid-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.mid-cta-text h2 {
+    color: var(--color-white);
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.mid-cta-text p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.mid-cta .btn-primary {
+    flex-shrink: 0;
+}
+
+/* ============================================
+   Testimonials
+   ============================================ */
+.testimonials {
+    background: var(--color-white);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.testimonial-card {
+    margin: 0;
+    padding: 2rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-lg);
+    border-top: 4px solid var(--color-gold);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-card > p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-style: italic;
+}
+
+.testimonial-card footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+}
+
+.testimonial-card cite {
+    display: block;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-navy);
+    font-size: 0.95rem;
+}
+
+.testimonial-card footer span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 0.2rem;
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq {
+    background: var(--color-bg);
+}
+
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.faq-item {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem 1.35rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-align: left;
+    transition: background var(--transition);
+}
+
+.faq-question:hover {
+    background: rgba(26, 54, 93, 0.04);
+}
+
+.faq-question:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: -2px;
+}
+
+.faq-question i {
+    flex-shrink: 0;
+    color: var(--color-gold-dark);
+    font-size: 0.85rem;
+    transition: transform var(--transition);
+}
+
+.faq-question[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.35rem 1.25rem;
+}
+
+.faq-answer p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
 }
 
 /* ============================================
@@ -525,10 +786,75 @@ section {
     background: var(--color-bg);
 }
 
-.work-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+.work-carousel {
+    position: relative;
+}
+
+.work-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold) var(--color-border);
+}
+
+.work-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.work-track::-webkit-scrollbar-track {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+.work-track::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 4px;
+}
+
+.work-track .case-card {
+    flex: 0 0 calc((100% - 3rem) / 3);
+    min-width: 0;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.work-nav {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--color-navy);
+    background: var(--color-white);
+    color: var(--color-navy);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.work-nav:hover {
+    background: var(--color-navy);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+.work-nav:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
 }
 
 .case-card {
@@ -595,7 +921,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 1.25rem;
+    margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid var(--color-border);
 }
@@ -731,8 +1057,30 @@ section {
 
 .contact-info > p {
     color: var(--color-text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     line-height: 1.7;
+}
+
+.contact-assurances {
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.contact-assurances li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-navy);
+}
+
+.contact-assurances i {
+    color: var(--color-gold-dark);
+    font-size: 0.85rem;
 }
 
 .contact-methods {
@@ -801,6 +1149,11 @@ section {
     margin-bottom: 0.4rem;
 }
 
+.label-optional {
+    font-weight: 400;
+    color: var(--color-text-muted);
+}
+
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -855,6 +1208,38 @@ section {
     text-align: center;
     padding: 2rem 0;
     font-size: 0.9rem;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.footer-social a:hover {
+    color: var(--color-gold);
+}
+
+.footer-social i {
+    font-size: 1.1rem;
 }
 
 /* ============================================
@@ -918,6 +1303,24 @@ section {
     .services-grid {
         grid-template-columns: 1fr;
         max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .work-track .case-card {
+        flex: 0 0 calc((100% - 1.5rem) / 2);
+    }
+
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
         margin: 0 auto;
     }
 
@@ -988,6 +1391,26 @@ section {
         gap: 2rem;
     }
 
+    .audience-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mid-cta-inner {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .work-track .case-card {
+        flex: 0 0 85%;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -997,7 +1420,15 @@ section {
         height: 220px;
     }
 
+    .nav-menu {
+        gap: 0;
+    }
+
     section {
         padding: 70px 0;
+    }
+
+    .perfect-for {
+        padding: 60px 0;
     }
 }

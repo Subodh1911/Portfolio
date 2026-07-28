@@ -12,7 +12,7 @@ Recommended: square image, at least 400×400px, JPG or WebP.
 
 Replace the placeholder email in these files if needed:
 
-- `index.html` — contact section (`subodh.kumar.dev@gmail.com`)
+- `index.html` — contact section (`subodhgarg2285@gmail.com`)
 - `script.js` — `CONFIG.RECIPIENT_EMAIL`
 - `google-apps-script/Code.gs` — `RECIPIENT_EMAIL`
 
@@ -73,4 +73,6 @@ Ensure `subodh.jpg` is included in the deployed files.
 
 - **Pricing:** Edit "Starting from" amounts in the Services section of `index.html`.
 - **Case studies:** Update text in the Work section as you complete new projects.
+- **Testimonials / metrics:** Replace placeholder quotes and figures (hero metrics, case study results) with real client feedback when available.
+- **Social links:** Replace `YOUR_HANDLE` in the footer LinkedIn and GitHub URLs with your real profiles.
 - **Meta/OG tags:** Update `og:image` URL after deploying if you want social previews to use an absolute URL.

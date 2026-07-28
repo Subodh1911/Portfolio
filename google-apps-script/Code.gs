@@ -19,6 +19,7 @@ function doPost(e) {
     const name = sanitize(data.name);
     const email = sanitize(data.email);
     const projectType = sanitize(data.projectType);
+    const sourceUrl = sanitize(data.sourceUrl || '');
     const message = sanitize(data.message);
 
     if (!name || !email || !projectType || !message) {
@@ -30,7 +31,8 @@ function doPost(e) {
       `New contact form submission\n\n` +
       `Name: ${name}\n` +
       `Email: ${email}\n` +
-      `Project Type: ${projectType}\n\n` +
+      `Project Type: ${projectType}\n` +
+      `Data Source URL: ${sourceUrl || '(not provided)'}\n\n` +
       `Message:\n${message}\n\n` +
       `---\nSent from portfolio contact form`;
 

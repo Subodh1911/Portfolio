@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initScrollSpy();
     initScrollAnimations();
+    initFaqAccordion();
+    initWorkCarousel();
     initContactForm();
 });
 
@@ -74,10 +76,17 @@ function initNavbarScroll() {
 }
 
 function initScrollSpy() {
-    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    if (!navLinks.length) return;
 
-    if (!sections.length || !navLinks.length) return;
+    const sections = Array.from(navLinks)
+        .map(link => {
+            const href = link.getAttribute('href');
+            return href && href.startsWith('#') ? document.querySelector(href) : null;
+        })
+        .filter(Boolean);
+
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
         (entries) => {
@@ -102,7 +111,7 @@ function initScrollSpy() {
 function initScrollAnimations() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const elements = document.querySelectorAll(
-        '.service-card, .case-card, .about-content, .contact-content'
+        '.service-card, .case-card, .about-content, .contact-content, .audience-item, .why-item, .testimonial-card, .faq-item'
     );
 
     if (prefersReducedMotion) {
@@ -127,6 +136,145 @@ function initScrollAnimations() {
     elements.forEach(el => observer.observe(el));
 }
 
+function initFaqAccordion() {
+    const faqList = document.querySelector('.faq-list');
+    if (!faqList) return;
+
+    faqList.addEventListener('click', (e) => {
+        const button = e.target.closest('.faq-question');
+        if (!button || !faqList.contains(button)) return;
+
+        const item = button.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+        faqList.querySelectorAll('.faq-question').forEach(otherBtn => {
+            if (otherBtn === button) return;
+            otherBtn.setAttribute('aria-expanded', 'false');
+            const otherAnswer = otherBtn.closest('.faq-item')?.querySelector('.faq-answer');
+            if (otherAnswer) otherAnswer.hidden = true;
+        });
+
+        button.setAttribute('aria-expanded', String(!isOpen));
+        answer.hidden = isOpen;
+    });
+}
+
+function initWorkCarousel() {
+    const carousel = document.querySelector('.work-carousel');
+    const track = document.getElementById('work-track');
+    if (!carousel || !track) return;
+
+    const cards = Array.from(track.querySelectorAll('.case-card'));
+    if (cards.length === 0) return;
+
+    const prevBtn = carousel.querySelector('.work-nav-prev');
+    const nextBtn = carousel.querySelector('.work-nav-next');
+    const intervalMs = Number(carousel.dataset.interval) || 4000;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let timerId = null;
+    let isPaused = false;
+
+    function getStep() {
+        const first = cards[0];
+        if (!first) return 0;
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.columnGap || style.gap) || 0;
+        return first.getBoundingClientRect().width + gap;
+    }
+
+    function maxScrollLeft() {
+        return Math.max(0, track.scrollWidth - track.clientWidth);
+    }
+
+    function scrollByStep(direction) {
+        const step = getStep();
+        if (!step) return;
+
+        const max = maxScrollLeft();
+        let nextLeft = track.scrollLeft + direction * step;
+
+        if (direction > 0 && track.scrollLeft >= max - 4) {
+            nextLeft = 0;
+        } else if (direction < 0 && track.scrollLeft <= 4) {
+            nextLeft = max;
+        }
+
+        track.scrollTo({
+            left: nextLeft,
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+    }
+
+    function stopAutoplay() {
+        if (timerId !== null) {
+            clearInterval(timerId);
+            timerId = null;
+        }
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        if (prefersReducedMotion || isPaused || maxScrollLeft() <= 0) return;
+
+        timerId = window.setInterval(() => {
+            if (!isPaused) scrollByStep(1);
+        }, intervalMs);
+    }
+
+    function pause() {
+        isPaused = true;
+        stopAutoplay();
+    }
+
+    function resume() {
+        isPaused = false;
+        startAutoplay();
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            scrollByStep(-1);
+            if (!prefersReducedMotion) {
+                stopAutoplay();
+                startAutoplay();
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            scrollByStep(1);
+            if (!prefersReducedMotion) {
+                stopAutoplay();
+                startAutoplay();
+            }
+        });
+    }
+
+    carousel.addEventListener('mouseenter', pause);
+    carousel.addEventListener('mouseleave', resume);
+    track.addEventListener('focusin', pause);
+    track.addEventListener('focusout', (e) => {
+        if (!carousel.contains(e.relatedTarget)) resume();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopAutoplay();
+        } else if (!isPaused) {
+            startAutoplay();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (!isPaused) startAutoplay();
+    }, { passive: true });
+
+    startAutoplay();
+}
+
 function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
@@ -142,18 +290,24 @@ function initContactForm() {
         const name = form.name.value.trim();
         const email = form.email.value.trim();
         const projectType = form.projectType.value;
+        const sourceUrl = form.sourceUrl ? form.sourceUrl.value.trim() : '';
         const message = form.message.value.trim();
 
         statusEl.textContent = '';
         statusEl.className = 'form-status';
 
         if (!name || !email || !projectType || !message) {
-            showFormStatus(statusEl, 'Please fill in all fields.', 'error');
+            showFormStatus(statusEl, 'Please fill in all required fields.', 'error');
             return;
         }
 
         if (!isValidEmail(email)) {
             showFormStatus(statusEl, 'Please enter a valid email address.', 'error');
+            return;
+        }
+
+        if (sourceUrl && !isValidUrl(sourceUrl)) {
+            showFormStatus(statusEl, 'Please enter a valid URL (including https://) or leave it blank.', 'error');
             return;
         }
 
@@ -175,7 +329,7 @@ function initContactForm() {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify({ name, email, projectType, message })
+                body: JSON.stringify({ name, email, projectType, sourceUrl, message })
             });
 
             const result = await response.json();
@@ -208,4 +362,13 @@ function showFormStatus(el, message, type) {
 
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidUrl(value) {
+    try {
+        const url = new URL(value);
+        return url.protocol === 'http:' || url.protocol === 'https:';
+    } catch {
+        return false;
+    }
 }
